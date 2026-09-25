@@ -12,69 +12,73 @@ GA_ID = ""  # e.g. "G-XXXXXXXXXX"
 TODAY = datetime.date.today().isoformat()
 
 CSS = """
-:root{--bg:#FAF8F4;--card:#fff;--ink:#242019;--muted:#75695C;--line:#E7DFD3;--accent:#5C4A3A;--accent-dk:#3E3126}
+:root{--bg:#FBF7EE;--card:#fff;--ink:#181A2E;--muted:#5C5A6E;--line:#E9E3D3;--navy:#13188C;--navy-dk:#0B0C55;--gold:#D8A62B;--gold-dk:#B5871A}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 'Inter',system-ui,-apple-system,sans-serif}
-h1,h2,h3{font-family:'Lora',Georgia,serif;font-weight:600;line-height:1.2;margin:0 0 .35em;color:var(--ink)}
+h1,h2,h3{font-family:'Lora',Georgia,serif;font-weight:700;line-height:1.18;margin:0 0 .35em;color:var(--ink)}
 a{color:inherit;text-decoration:none}
-.wrap{max-width:720px;margin:0 auto;padding:0 20px}
+.wrap{max-width:740px;margin:0 auto;padding:0 20px}
 
-header.site{border-bottom:1px solid var(--line);background:var(--card)}
-header.site .wrap{padding:30px 20px 24px;text-align:center}
+.topstrip{background:var(--navy);height:6px;background-image:linear-gradient(90deg,var(--navy) 0%,var(--navy) 60%,var(--gold) 60%,var(--gold) 100%)}
+header.site{border-bottom:3px solid var(--ink);background:var(--card)}
+header.site .wrap{padding:36px 20px 22px;text-align:center}
 .brand{display:inline-block}
-.brand img{height:44px;width:auto;display:block;margin:0 auto}
-.tagline{color:var(--muted);font-size:14px;margin-top:10px}
-nav.main{display:flex;justify-content:center;gap:28px;margin-top:18px;font-size:13px;letter-spacing:.04em;text-transform:uppercase;font-weight:600}
-nav.main a{color:var(--accent);padding-bottom:2px;border-bottom:2px solid transparent}
-nav.main a:hover{border-color:var(--accent)}
+.brand img{height:76px;width:auto;display:block;margin:0 auto}
+.tagline{color:var(--muted);font-size:14.5px;margin-top:12px;font-style:italic;font-family:'Lora',Georgia,serif}
+nav.main{display:flex;justify-content:center;gap:0;margin-top:22px;font-size:13px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;background:var(--navy)}
+nav.main a{color:#fff;padding:12px 22px;border-right:1px solid rgba(255,255,255,.15)}
+nav.main a:first-child{border-left:1px solid rgba(255,255,255,.15)}
+nav.main a:hover{background:var(--gold);color:var(--ink)}
 
-main{padding:40px 0 64px}
+main{padding:44px 0 64px}
 
 .crumbs{font-size:13px;color:var(--muted);margin:0 0 20px}
 .crumbs a{text-decoration:underline}
-.crumbs a:hover{color:var(--ink)}
+.crumbs a:hover{color:var(--navy)}
 
-.tag{display:inline-block;color:var(--accent);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.tag{display:inline-block;background:var(--navy);color:#fff;font-size:11.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:5px 10px;border-radius:3px}
 
-.verse-card{background:var(--accent-dk);color:#F5EFE6;padding:32px 28px;margin:22px 0 30px;border-radius:2px}
-.verse-card p{font-family:'Lora',Georgia,serif;font-size:clamp(19px,3vw,23px);line-height:1.5;margin:0}
-.verse-card .ref{display:block;margin-top:16px;font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#C9B79C}
+.verse-card{background:var(--navy);color:#F5EFE6;padding:34px 30px;margin:24px 0 32px;border-radius:4px;position:relative;border-left:6px solid var(--gold);box-shadow:0 8px 24px -8px rgba(19,24,140,.4)}
+.verse-card p{font-family:'Lora',Georgia,serif;font-style:italic;font-size:clamp(20px,3.2vw,25px);line-height:1.5;margin:0}
+.verse-card .ref{display:block;margin-top:18px;font-size:12.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
 
 article.post .article-head{margin-bottom:6px}
-.meta{color:var(--muted);font-size:13px;margin-top:6px}
-h1.headline{font-size:clamp(28px,5.5vw,38px);margin-top:.3em}
-h2{font-size:20px;margin-top:1.7em;padding-top:1.2em;border-top:1px solid var(--line)}
+.meta{color:var(--muted);font-size:13px;margin-top:8px;font-weight:600}
+h1.headline{font-size:clamp(30px,5.8vw,42px);margin-top:.3em}
+h2{font-size:21px;margin-top:1.8em;padding-top:1.2em;border-top:2px solid var(--gold);color:var(--navy)}
 p{margin:0 0 1.15em}
-.prayer{background:#F1EAE0;border-left:3px solid var(--accent);padding:16px 20px;font-style:italic;border-radius:0 2px 2px 0}
+.prayer{background:#EEF0FF;border-left:4px solid var(--navy);padding:18px 22px;font-style:italic;border-radius:0 4px 4px 0}
 
-.section-title{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:38px 0 16px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.section-title{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);margin:42px 0 18px}
+.section-title::after{content:'';flex:1;height:3px;background:var(--gold)}
 
 .list{display:flex;flex-direction:column}
-.item{padding:20px 0;border-bottom:1px solid var(--line)}
+.item{padding:22px 0;border-bottom:1px solid var(--line);transition:padding-left .15s}
 .item:first-child{padding-top:0}
-.item .tag{margin-bottom:6px}
-.item h3{font-size:19px;margin:2px 0 6px;line-height:1.3}
+.item:hover{padding-left:8px;border-bottom-color:var(--gold)}
+.item .tag{margin-bottom:8px}
+.item h3{font-size:20px;margin:4px 0 6px;line-height:1.3}
 .item .desc{color:var(--muted);font-size:14.5px;margin:0}
-.item .date{color:var(--muted);font-size:12.5px;margin-left:8px;font-weight:400;text-transform:none;letter-spacing:0}
+.item .date{color:var(--muted);font-size:12.5px;margin-left:8px;font-weight:600;text-transform:none;letter-spacing:0;background:none;padding:0}
 
-.intro{margin-bottom:6px}
-.intro .tag{margin-bottom:8px}
-.intro h1{font-size:clamp(26px,5vw,34px)}
-.intro .dek{color:var(--muted);font-size:16px;margin:8px 0 0}
-.byline{color:var(--muted);font-size:12.5px;letter-spacing:.03em;text-transform:uppercase}
+.intro{margin-bottom:6px;padding-bottom:30px;border-bottom:3px double var(--line)}
+.intro .tag{margin-bottom:10px}
+.intro h1{font-size:clamp(28px,5.5vw,38px)}
+.intro .dek{color:var(--muted);font-size:16.5px;margin:10px 0 0}
+.byline{color:var(--gold-dk);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;font-weight:800}
 
-.signup{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:26px 24px;margin:44px 0 8px;text-align:center}
-.signup h2{font-size:19px;margin:0 0 6px}
-.signup p{color:var(--muted);margin:0;font-size:14px}
-.signup form{display:flex;gap:8px;margin-top:16px;max-width:380px;margin-left:auto;margin-right:auto}
-.signup input[type=email]{flex:1;padding:11px 14px;border:1px solid var(--line);border-radius:4px;font-size:15px;font-family:inherit}
-.signup button{padding:11px 18px;background:var(--accent);color:#fff;border:0;border-radius:4px;font-size:13px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;cursor:pointer}
-.signup button:hover{background:var(--accent-dk)}
+.signup{background:var(--navy);border-radius:6px;padding:30px 26px;margin:46px 0 8px;text-align:center;box-shadow:0 10px 30px -12px rgba(19,24,140,.5)}
+.signup h2{font-size:20px;margin:0 0 6px;color:#fff}
+.signup p{color:#C7CAF0;margin:0;font-size:14px}
+.signup form{display:flex;gap:8px;margin-top:18px;max-width:380px;margin-left:auto;margin-right:auto}
+.signup input[type=email]{flex:1;padding:12px 14px;border:0;border-radius:4px;font-size:15px;font-family:inherit}
+.signup button{padding:12px 20px;background:var(--gold);color:var(--ink);border:0;border-radius:4px;font-size:13px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;cursor:pointer}
+.signup button:hover{background:var(--gold-dk);color:#fff}
 
-footer{border-top:1px solid var(--line);color:var(--muted);font-size:13px;padding:30px 20px 50px}
+footer{border-top:1px solid var(--line);color:var(--muted);font-size:13px;padding:34px 20px 54px;background:var(--ink);color:#B9B7C9}
 footer .wrap{text-align:center}
-footer a{text-decoration:underline}
+footer a{color:#fff;text-decoration:underline}
 """
 FONT_LINK = ('<link rel="preconnect" href="https://fonts.googleapis.com">'
              '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
@@ -129,11 +133,10 @@ def signup():
 <input type="email" name="email" placeholder="Your email" required> <button type="submit">Subscribe</button></form></div>'''
 
 def nav():
-    head = f'''<header class="site"><div class="wrap">
-<a class="brand" href="/"><img src="/assets/logo.png" alt="{esc(NAME)}" width="300" height="88"></a>
+    head = f'''<div class="topstrip"></div><header class="site"><div class="wrap">
+<a class="brand" href="/"><img src="/assets/logo.png" alt="{esc(NAME)}" width="400" height="118"></a>
 <div class="tagline">{TAGLINE}</div>
-<nav class="main"><a href="/">Home</a><a href="/devotionals/">Devotionals</a><a href="/about/">About</a></nav>
-</div></header>'''
+</div><nav class="main"><a href="/">Home</a><a href="/devotionals/">Devotionals</a><a href="/about/">About</a></nav></header>'''
     return head
 
 def page(title, desc, path, content, jsonld="", og_type="website"):
