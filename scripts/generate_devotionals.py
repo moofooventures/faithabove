@@ -10,7 +10,7 @@ import anthropic
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DEVO_DIR = os.path.join(REPO_ROOT, "content", "devotionals")
 CALENDAR_PATH = os.path.join(REPO_ROOT, "TOPIC_CALENDAR.md")
-POSTS_PER_DAY = 4
+POSTS_PER_DAY = 1
 RECENT_WINDOW = 40  # how many recent files to check when avoiding repeats
 
 MODEL = "claude-sonnet-5"
