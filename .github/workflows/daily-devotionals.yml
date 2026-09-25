@@ -2,7 +2,7 @@ name: Daily Devotionals
 
 on:
   schedule:
-    - cron: "0 12,14,16,18 * * *"
+    - cron: "7 12,14,16,18 * * *"
   workflow_dispatch: {}
 
 permissions:
