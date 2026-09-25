@@ -1,0 +1,39 @@
+name: Daily Devotionals
+
+on:
+  schedule:
+    - cron: "0 12 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install anthropic
+
+      - name: Generate today's devotionals
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python3 scripts/generate_devotionals.py
+
+      - name: Commit and push
+        run: |
+          git config user.name "faithabove-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add content/devotionals
+          if git diff --cached --quiet; then
+            echo "No new devotionals to commit"
+          else
+            git commit -m "Add daily devotionals for $(date -u +%F)"
+            git push
+          fi
