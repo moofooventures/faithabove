@@ -16,7 +16,10 @@ met, the script exits immediately without calling the API (no wasted
 cost).
 """
 import os, re, glob, datetime
+from zoneinfo import ZoneInfo
 import anthropic
+
+SITE_TZ = ZoneInfo("America/New_York")
 
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DEVO_DIR = os.path.join(REPO_ROOT, "content", "devotionals")
@@ -162,7 +165,7 @@ def write_file(d, today, used_slugs):
 
 
 def main():
-    today = datetime.date.today().isoformat()
+    today = datetime.datetime.now(SITE_TZ).date().isoformat()
     already = count_today(today)
     needed = TARGET_POSTS_PER_DAY - already
     if needed <= 0:
